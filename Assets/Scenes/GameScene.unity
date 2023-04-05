@@ -555,6 +555,19 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &338757284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338757277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17b08b1743f7354088d3d575d98acb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lr: {fileID: 338757278}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,6 +1090,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 53367718117063062, guid: 83d86f26364265346a7965a113c75a61, type: 3}
       insertIndex: -1
       addedObject: {fileID: 338757278}
+    - targetCorrespondingSourceObject: {fileID: 53367718117063062, guid: 83d86f26364265346a7965a113c75a61, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 338757284}
   m_SourcePrefab: {fileID: 100100000, guid: 83d86f26364265346a7965a113c75a61, type: 3}
 --- !u!1 &1516284136
 GameObject:
