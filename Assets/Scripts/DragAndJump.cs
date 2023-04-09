@@ -15,6 +15,7 @@ public class DragAndJump : MonoBehaviour
     private Vector3 startPoint;
     private Vector3 endPoint;
     private LineTrajectory tl;
+    private bool isStill;
 
     private void Start()
     {
@@ -23,18 +24,24 @@ public class DragAndJump : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0)) {
+        if (rb.velocity == Vector2.zero) {
+            isStill = true;
+        } else {
+            isStill = false;
+        }
+
+        if (Input.GetMouseButtonDown(0) && isStill == true) {
             startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             startPoint.z = 15;
         }
 
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetMouseButton(0) && isStill == true) {
             Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             currentPoint.z = 15;
             tl.RenderLine(startPoint, currentPoint);
         }
 
-        if (Input.GetMouseButtonUp(0)) {
+        if (Input.GetMouseButtonUp(0) && isStill == true) {
             endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             endPoint.z = 15;
 
