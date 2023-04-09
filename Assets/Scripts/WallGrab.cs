@@ -4,32 +4,16 @@ using UnityEngine;
 
 public class WallGrab : MonoBehaviour
 {
-    public bool wallGrab;
-
+    [Header("References")]
+    public DragAndJump movement;
+    public Transform orientation;
+    public Transform cam;
     private Rigidbody2D rb;
-    private Collision collision;
 
+    [Header("Wall Detection")]
+    public float wallDetectionLength;
+    public float wallCircleCastRadius;
+    public LayerMask whatIsWall;
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        collision = GetComponent<Collision>();
-    }
-
-    private void Update()
-    {
-        //if (collision.onWall && Input.GetButton("Grab"))
-        //{
-        //    wallGrab = true;
-        //}
-        //if (!collision.onWall || Input.GetButtonUp("Grab"))
-        //{
-        //    wallGrab = false;
-        //}
-        if (wallGrab)
-        {
-            rb.gravityScale = 0;
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-        }
-    }
+    private RaycastHit2D wallHit;
 }
