@@ -22,23 +22,19 @@ public class DragAndJump : MonoBehaviour
         tl = GetComponent<LineTrajectory>();
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
+    private void Update() {
+        if (Input.GetMouseButtonDown(0)) {
             startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             startPoint.z = 15;
         }
 
-        if (Input.GetMouseButton(0))
-        {
+        if (Input.GetMouseButton(0)) {
             Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             currentPoint.z = 15;
             tl.RenderLine(startPoint, currentPoint);
         }
 
-        if (Input.GetMouseButtonUp(0))
-        {
+        if (Input.GetMouseButtonUp(0)) {
             endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
             endPoint.z = 15;
 
@@ -46,6 +42,11 @@ public class DragAndJump : MonoBehaviour
             rb.AddForce(force * power, ForceMode2D.Impulse);
             rb.gravityScale = 3.5f;
             tl.EndLine();
+            if (startPoint.x - endPoint.x < 0) {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, 180, transform.rotation.z);
+            } else {
+                transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z);
+            }
         }
     }
 }
